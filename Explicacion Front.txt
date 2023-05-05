@@ -1,0 +1,9 @@
+Para la prueba cree una API en laravel para consumir.
+
+-En Angular en environment.ts cree una variable apiUrl donde va a estar almacenada la api, y en app.modules importe HttpClientModule para poder consumir la API
+-Cree el archivo persona.interface, donde van a estar los tipos de datos que tiene la API
+-Luego cree el archivo services, en el.ts cree un observable de PersonaInteface de tipo arreglo, 
+luego cree los componentes y servicios
+-Cree el archivo components, en lista-personas "consumi la api" y en tabla, hice la tabla dinamica que va a mostrar los datos por medio de ngFor, una vez funcional la tabla procedi a implemntar los filtros.
+-Cree los los filtros con un evento ngModel, ngModelChange y un input para cada filtro, en tabla.ts inicie todos los filtros en false y los valores en vacio ("")
+-Para filtrar segun el valor que se ingresara cree un filterPersona donde va a tener el arreglo PersonaInterface y una copia de personasInfo, y hice el filtrado para cada uno de los input e inicie una variable para guardar los datos que cumplieran las condiciones y lo agregue a personasInfo

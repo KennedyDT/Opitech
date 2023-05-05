@@ -1,0 +1,3 @@
+En la prueba de backend primero hice un analisis de las consultas que pedian en el SQL para poder realizar el mapa de clases.
+
+En mi solucion vuelos debia contener lo general y otra clase llamada categoria de viaje, una clase consulta donde va a guardar los datos de los vuelos y de los clientes, una clase reserva donde va a guardar la consulta, forma de pago y la fecha de compra.
