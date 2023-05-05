@@ -1,0 +1,35 @@
+//inicio de la aplicacion
+
+	//El usuario inicia sesion, se despliega el menu
+
+	Menu principal:
+
+		1- Ver lista de los viajes
+			//Se despliega una lista con los vuelos, destinos, fechas y precios
+			1.1- Reservar viaje
+				//Se despliega una alerta indicando al usuario el vuelo que va a reservar
+				
+				Forma de pago: 
+				1.1.1- Efectivo
+					// Se imprime un recibo y el boleto 
+				1.1.2- Cuenta de ahorros
+					// Se le solicita al cliente los datos de la cuenta de ahorros, en caso de tener saldo insuficiente se le indica al usuario
+						// Se imprime un recibo y el boleto 
+					
+				1.1.3- Cuenta de credito
+					// Se le solicita al cliente los datos de la cuenta de credito, en caso de tener saldo insuficiente se le indica al usuario
+						// Se imprime un recibo y el boleto 
+
+				1.1.4- Cancelar y volver al menu anterior
+			1.2- Volver al menu anterior
+			
+
+		2- Cancelar una reserva
+			//Se despliega una lista con las reservas, en caso de no tener reservas la aplicacion volvera al menu anterior
+			2.1- Ingresa el numero de la reserva que desas cancelar
+				//Sale una alerta de confirmacion sobre la reserva que desea cancelar
+			2.2- Volver al menu anterior
+		3- Consultar boleto
+			// Se imprime en pantalla los datos del boleto que ingreso el usuario
+		
+		4-Salir
