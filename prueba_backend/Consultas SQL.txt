@@ -1,0 +1,31 @@
+
+
+select count(co.ID_Cliente) as num_personas 
+from [dbo].[consulta] as co
+inner join [dbo].[vuelos] as vu on vu.ID_vuelo = co.ID_vuelo
+WHERE ( vu.precio > 5000);
+
+
+SELECT cl.ID_cliente, re.forma_pago
+FROM [dbo].[clientes] AS cl
+INNER JOIN [dbo].[consulta] AS vu ON cl.ID_cliente = vu.ID_Consulta
+INNER JOIN [dbo].[reserva] AS re ON vu.ID_consulta = re.ID_consulta
+WHERE re.forma_Pago = 'Efectivo';
+
+
+SELECT cl.ID_cliente, cl.edad, cl.ciudad
+FROM [dbo].[clientes] AS cl
+WHERE cl.edad > 40 AND cl.ciudad ='bogota'
+
+
+SELECT cv.tipo_viaje
+FROM [dbo].[categoria] cv
+INNER JOIN [dbo].[vuelos] vu ON cv.[ID_categoria] = vu.[ID_categoria]
+INNER JOIN [dbo].[consulta] co ON vu.[ID_vuelo] = co.[ID_vuelo]
+INNER JOIN [dbo].[reserva] re ON co.[ID_consulta] = re.[ID_consulta]
+WHERE re.[forma_pago] = 'credito' AND (cv.tipo_viaje = 'turismo' OR cv.tipo_viaje = 'negocios')
+
+
+SELECT *
+FROM [dbo].[vuelos] as vu
+WHERE vu.[estado] IN ('activo', 'cancelado')
