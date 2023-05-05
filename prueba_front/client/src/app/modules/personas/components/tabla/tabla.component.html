@@ -1,0 +1,101 @@
+
+
+<div class="row mb-3">
+  <div class="col-12">
+    <button
+      class="btn btn-primary mb-3"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseExample"
+      aria-expanded="false"
+      aria-controls="collapseExample"
+    >
+      Filtros
+    </button>
+
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+          <input type="checkbox" [(ngModel)]="filterByNameActived" (ngModelChange)="filterPersonas()" class="btn-check" id="btncheck1" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btncheck1">Nombre de usuario</label>
+
+          <input type="checkbox" [(ngModel)]="filterByPriorityActived" (ngModelChange)="filterPersonas()" class="btn-check" id="btncheck2" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btncheck2">Prioridad</label>
+
+          <input type="checkbox" [(ngModel)]="filterBySatisfactionActived" (ngModelChange)="filterPersonas()" class="btn-check" id="btncheck3" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btncheck3">Satisfacción</label>
+
+          <input type="checkbox" [(ngModel)]="filterBySubjectActived" (ngModelChange)="filterPersonas()" class="btn-check" id="btncheck4" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btncheck4">Subject</label>
+
+          <input type="checkbox" [(ngModel)]="filterByStatusActived" (ngModelChange)="filterPersonas()" class="btn-check" id="btncheck5" autocomplete="off">
+          <label class="btn btn-outline-primary" for="btncheck5">Status</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-auto">
+    <div class="input-group mb-3" *ngIf="filterByNameActived">
+      <input type="text" [(ngModel)]="filterByNameValue" (ngModelChange)="filterPersonas()" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div class="col-auto">
+    <div class="input-group mb-3" *ngIf="filterByPriorityActived">
+      <input type="number" [(ngModel)]="filterByPriorityValue" (ngModelChange)="filterPersonas()"  class="form-control" placeholder="Priority" aria-label="Priority" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div class="col-auto">
+    <div class="input-group mb-3" *ngIf="filterBySatisfactionActived">
+      <input type="text" [(ngModel)]="filterBySatisfactionValue" (ngModelChange)="filterPersonas()"  class="form-control" placeholder="Satisfaction" aria-label="Satisfaction" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div class="col-auto">
+    <div class="input-group mb-3" *ngIf="filterByStatusActived">
+      <input type="text" [(ngModel)]="filterByStatusValue" (ngModelChange)="filterPersonas()"  class="form-control" placeholder="Status" aria-label="Status" aria-describedby="basic-addon1">
+    </div>
+  </div>
+  <div class="col-auto">
+    <div class="input-group mb-3" *ngIf="filterBySubjectActived">
+      <input type="text" [(ngModel)]="filterBySubjectValue" (ngModelChange)="filterPersonas()"  class="form-control" placeholder="Subject" aria-label="Subject" aria-describedby="basic-addon1">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">User Name</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Customer Satisfaction</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of (personasInfo | async)">
+          <td >
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                {{item.name}}
+              </label>
+            </div>
+          </td>
+          <td>{{item.subject}}</td>
+          <td>{{item.satisfaction}}</td>
+          <td>{{item.priority}}</td>
+          <td>{{item.status}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <button type="button" class="btn btn-primary" (click)="reloadTable()">Recargar</button>
+  </div>
+</div>
